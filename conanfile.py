@@ -19,7 +19,10 @@ class LcovConan(ConanFile):
               F"Coverage%20Analysis/LCOV-{self.version}/{self._filename}.tar.gz"
         tools.get(url)
 
-    def build(self):
+    def package(self):
         with tools.chdir(self._filename):
+            self.output.info(F"Patching and installing lcov")
+            tools.replace_path_in_file("Makefile", "/usr/local", self.package_folder)
+
             env_build = AutoToolsBuildEnvironment(self)
             env_build.make(target="install")
