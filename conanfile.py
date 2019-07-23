@@ -4,7 +4,7 @@ from conans import ConanFile, AutoToolsBuildEnvironment, tools
 
 
 class LcovConan(ConanFile):
-    name = "lcov"
+    name = "lcov_installer"
     version = "1.14"
     license = "GPL"
     author = "Torfinn Berset <torfinn@bloomlife.com>"
