@@ -1,3 +1,5 @@
+import os
+
 from conans import ConanFile, AutoToolsBuildEnvironment, tools
 
 
@@ -26,3 +28,7 @@ class LcovConan(ConanFile):
 
             env_build = AutoToolsBuildEnvironment(self)
             env_build.make(target="install")
+
+    def package_info(self):
+        self.env_info.PATH.append(os.path.join(self.package_folder, "bin"))
+        self.output.success("Added lcov to $PATH")
