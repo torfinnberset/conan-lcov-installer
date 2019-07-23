@@ -16,10 +16,14 @@ class LcovConan(ConanFile):
 
     _filename = F"lcov-{version}"
 
+    _version_sha256 = {
+        "1.14": "14995699187440e0ae4da57fe3a64adc0a3c5cf14feab971f8db38fb7d8f071a"
+    }
+
     def source(self):
         url = F"https://datapacket.dl.sourceforge.net/project/ltp/" \
               F"Coverage%20Analysis/LCOV-{self.version}/{self._filename}.tar.gz"
-        tools.get(url)
+        tools.get(url, sha256=self._version_sha256[self.version])
 
     def package(self):
         with tools.chdir(self._filename):
