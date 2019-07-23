@@ -1,4 +1,4 @@
-# Conan CMake Installer
+# Conan LCov Installer
 
 ## Reference
 
